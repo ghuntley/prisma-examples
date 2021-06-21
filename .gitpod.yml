@@ -1,4 +1,6 @@
 tasks:
+  - init: >
+      find . -name 'package.json' -printf "%h\n" | sort -u | xargs -L1 npm install
   - command: |
       if [[ -v $EXAMPLE_DIR ]]; then
           cd $EXAMPLE_DIR

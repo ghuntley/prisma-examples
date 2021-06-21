@@ -1,17 +1,17 @@
 tasks:
   - command: |
-      if [[ -z "${EXAMPLE_DIR}"] ]; then
-        cd $EXAMPLE_DIR
-        npm install
-        echo "Create and seed the database..."
-        npx prisma migrate dev --name init
-        npx prisma db seed --preview-feature
-        echo "Start the GraphQL server..."
-        npm run dev
+      if [[ -v $EXAMPLE_DIR ]]; then
+          cd $EXAMPLE_DIR
+          npm install
+          echo "Create and seed the database..."
+          npx prisma migrate dev --name init
+          npx prisma db seed --preview-feature
+          echo "Start the GraphQL server..."
+          npm run dev
       else     
-        echo "Please specify the EXAMPLE_DIR environment variable which
-        echo "should be passed in as https://gitpod.io/#EXAMPLE_DIR=...,snip"
-        echo "See https://www.gitpod.io/docs/environment-variables"  
+          echo "Please specify the EXAMPLE_DIR environment variable which"
+          echo "should be passed in as https://gitpod.io/#EXAMPLE_DIR=..."
+          echo "See https://www.gitpod.io/docs/environment-variables"  
       fi
 
 ports:
